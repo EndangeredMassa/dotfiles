@@ -1,0 +1,45 @@
+#!/usr/bin/env coffee
+
+request = require 'request'
+
+drainStream = (stream, callback) ->
+  stream.resume()
+  stream.setEncoding('utf8')
+
+  data = ''
+
+  stream.on 'data', (chunk) ->
+    data += chunk.toString()
+
+  process.stdin.on 'end', ->
+    callback(data.trim())
+
+
+file = process.argv[2] || 'quick.txt'
+GIST_API = 'https://api.github.com/gists'
+
+drainStream process.stdin, (content) ->
+  content = JSON.stringify content
+  options =
+    url: GIST_API
+    body: "{\"files\": {\"#{file}\": {\"content\":#{content}}}}"
+
+  # verify this still parses before we send it along
+  JSON.parse(options.body)
+
+  request.post options, (error, response, body) ->
+    if error?
+      console.error error.stack
+      process.exit(1)
+
+    url = JSON.parse(body).html_url
+    if !url?
+      console.error 'Failure posting gist with:'
+      console.error options.body
+      console.error 'Received:'
+      console.error body
+      process.exit(2)
+
+    console.log url
+    process.exit(0)
+

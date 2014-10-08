@@ -1,0 +1,8 @@
+{
+  "name": "bin",
+  "version": "0.0.1",
+  "description": "misc bin scripts that might use some node",
+  "dependencies": {
+    "request": "~2.27.0"
+  }
+}

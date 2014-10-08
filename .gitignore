@@ -1,0 +1,7 @@
+caches/
+backups/
+
+link/bin/git-proxy-wrapper
+link/bin/phantomjs
+link/bin/start_autossh
+

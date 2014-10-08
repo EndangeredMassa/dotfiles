@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+CODE=0
+COUNTER=0
+while [ $CODE == 0 ]; do
+  eval "$@"
+  CODE=$?
+
+  let COUNTER=$COUNTER+1
+  echo ''
+  echo \#\#\# $COUNTER \#\#\#
+  echo ''
+done
+

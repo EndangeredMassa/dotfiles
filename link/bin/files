@@ -1,0 +1,4 @@
+#!/bin/sh
+
+nautilus $1 2> /dev/null &
+
