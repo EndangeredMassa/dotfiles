@@ -4,7 +4,7 @@ PATH="~/bin:$PATH"
 #prompt
 export PS1='\[$(tput setaf 6)\][\w] \[$(tput setaf 3)\]$(__git_ps1 "(%s) ")\[$(tput setaf 171; tput bold)\]\\$ \[$(tput sgr0)\]'
 
-alias tree="tree -I 'node_modules|tmp'"
+alias tree="tree -I 'node_modules|tmp|bower_components'"
 alias tm="~/.dotfiles/conf/tmux/tmux.sh"
 alias exwav="ffmpeg -i"
 alias ..="cd .."
