@@ -13,7 +13,3 @@ cp ~/.dotfiles/conf/vim/colors/* ~/.vim/colors
 # git settings
 git config --global --add color.ui true
 
-# dotjs files
-mkdir -p ~/.js
-cp ~/.dotfiles/conf/.js/* ~/.js
-

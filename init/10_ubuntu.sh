@@ -11,7 +11,8 @@ sudo apt-get remove unity-lens-shopping
 
 # Install APT packages.
 packages=(
-  build-essential libssl-dev
+  build-essential
+  libssl-dev
   xclip
   git-core
   tree

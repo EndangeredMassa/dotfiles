@@ -21,7 +21,7 @@ function dotfiles() {
 
 src
 
-export TERM=screen-256color
+export TERM=xterm-256color
 
 export PATH=$HOME/bin:$PATH
 
